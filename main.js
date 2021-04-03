@@ -1,3 +1,4 @@
+const fs = require("fs");
 const { app, BrowserWindow } = require('electron');
 
 function createWindow() {
@@ -11,7 +12,7 @@ function createWindow() {
         icon: __dirname + '/icon.ico'
     });
 
-    win.loadURL('https://rhythmcraft.hyonsu.com?isClient=true');
+    win.loadURL(fs.readFileSync('_SITE_URL').toString());
     win.setMenuBarVisibility(false);
     win.setFullScreen(true);
     win.setFullScreenable(false);
