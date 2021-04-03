@@ -1,5 +1,6 @@
 const fs = require("fs");
 const { app, BrowserWindow } = require('electron');
+const data = require('./data.json')
 
 function createWindow() {
     let win = new BrowserWindow({
@@ -12,7 +13,7 @@ function createWindow() {
         icon: __dirname + '/icon.ico'
     });
 
-    win.loadURL(fs.readFileSync('_SITE_URL').toString());
+    win.loadURL(data.baseUrl);
     win.setMenuBarVisibility(false);
     win.setFullScreen(true);
     win.setFullScreenable(false);
@@ -50,7 +51,7 @@ client.updatePresence(global.globalVars.RichPresence);
 
 let before_rich;
 setInterval(() => {
-    if(before_rich == global.globalVars.RichPresence) return;
+    if(before_rich === global.globalVars.RichPresence) return;
     client.updatePresence(global.globalVars.RichPresence);
     before_rich = global.globalVars.RichPresence;
 }, 1);
