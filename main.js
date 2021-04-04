@@ -1,8 +1,9 @@
-const fs = require("fs");
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, screen } = require('electron');
 const data = require('./data.json')
 
 function createWindow() {
+    const display = screen.getDisplayNearestPoint(screen.getCursorScreenPoint())
+
     let win = new BrowserWindow({
         width: 500,
         height: 500,
@@ -10,13 +11,16 @@ function createWindow() {
             nodeIntegration: true,
             enableRemoteModule: true
         },
-        icon: __dirname + '/icon.ico'
+        icon: __dirname + '/icon.ico',
+        x: display.bounds.x,
+        y: display.bounds.y
     });
 
     win.loadURL(data.baseUrl);
     win.setMenuBarVisibility(false);
     win.setFullScreen(true);
     win.setFullScreenable(false);
+
 
     const connection_timeout = setTimeout(() => {
         win.loadFile('./page/connect_failed.html');
