@@ -9,13 +9,12 @@ function createWindow() {
         height: 500,
         webPreferences: {
             nodeIntegration: true,
-            enableRemoteModule: true
+            enableRemoteModule: true,
         },
         icon: __dirname + '/icon.ico',
         x: display.bounds.x,
         y: display.bounds.y
     });
-
     win.loadURL(data.baseUrl);
     win.setMenuBarVisibility(false);
     win.setFullScreen(true);
@@ -29,6 +28,12 @@ function createWindow() {
     win.webContents.once('dom-ready', () => {
         clearTimeout(connection_timeout);
     });
+
+    win.webContents.on('devtools-opened', () => {
+        if (!global.globalVars.admin) {
+            win.webContents.closeDevTools()
+        }
+    })
 
     client.on('join', secret => {
         const params = secret.split('||');
