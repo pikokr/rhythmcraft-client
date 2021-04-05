@@ -10,6 +10,7 @@ body {
     display: table-cell;
     vertical-align: middle;
 }
-#reconnect, #close {
+#reconnect,
+#close {
     margin: 20px;
 }
