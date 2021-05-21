@@ -1,5 +1,5 @@
 const { app, BrowserWindow, screen } = require('electron');
-const data = require('./data.json')
+const data = require('./config.json')
 
 function createWindow() {
     const display = screen.getDisplayNearestPoint(screen.getCursorScreenPoint())

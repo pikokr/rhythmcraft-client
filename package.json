@@ -22,5 +22,42 @@
   "dependencies": {
     "discord-rich-presence": "0.0.8",
     "electron-prompt": "^1.6.0"
+  },
+  "build": {
+    "productName": "Youtube-DL",
+    "appId": "com.github.pikokr.ytdl_gui",
+    "win": {
+      "target": [
+        "zip",
+        "nsis"
+      ],
+      "icon": "./icon.ico"
+    },
+    "asar": false,
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./resources/installer/icon.png"
+    },
+    "directories": {
+      "buildResources": "./resources/installer/",
+      "output": "./app/",
+      "app": "."
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "./icon.png"
+    },
+    "linux": {
+      "target": [
+        "appimage"
+      ],
+      "category": "Utility"
+    },
+    "dmg": {
+      "icon": "./icon.png"
+    }
   }
 }
