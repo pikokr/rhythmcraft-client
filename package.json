@@ -38,10 +38,9 @@
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
-      "installerIcon": "./resources/installer/icon.png"
+      "installerIcon": "./icon.png"
     },
     "directories": {
-      "buildResources": "./resources/installer/",
       "output": "./app/",
       "app": "."
     },
