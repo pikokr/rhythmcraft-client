@@ -26,7 +26,7 @@
   },
   "build": {
     "productName": "Rhythmcraft",
-    "appId": "com.github.pikokr.ytdl_gui",
+    "appId": "com.github.pikokr.rhythmcraft",
     "win": {
       "target": [
         "zip",
