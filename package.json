@@ -25,7 +25,7 @@
     "electron-prompt": "^1.6.0"
   },
   "build": {
-    "productName": "Youtube-DL",
+    "productName": "Rhythmcraft",
     "appId": "com.github.pikokr.ytdl_gui",
     "win": {
       "target": [
